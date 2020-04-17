@@ -12,18 +12,77 @@
             <div class="sidebar-brand-icon rotate-n-15">
                 <i class="fas fa-laugh-wink"></i>
             </div>
-            <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+            <div class="sidebar-brand-text mx-3">Wabisabi</div>
         </a>
 
         <!-- Divider -->
         <hr class="sidebar-divider my-0">
 
         <!-- Nav Item - Dashboard -->
-        <li class="nav-item @if(route('dashboard')) active @endif">
+        <li class="nav-item ">
             <a class="nav-link" href="/dashboard">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Dashboard</span></a>
         </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider my-0">
+
+
+        <div class="sidebar-heading mt-2">
+            Product Management
+        </div>
+
+        <li class="nav-item">
+            <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseProduct" aria-expanded="true"
+                aria-controls="collapsePages">
+                <i class="fas fa-fw fa-folder"></i>
+                <span>Product</span>
+            </a>
+            <div id="collapseProduct" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Product Management:</h6>
+                    <a class="collapse-item" href="/products">
+                        <i class="fas fa-fw fa-shopping-bag mr-1"></i>
+                        Products
+                    </a>
+                    <a class="collapse-item" href="/categories">
+                        <i class="fas fa-fw fa-list-ul"></i>
+                        Categories
+                    </a>
+                    <a class="collapse-item" href="/details">
+                        <i class="fas fa-fw fa-clipboard"></i>
+                        Details
+                    </a>
+                </div>
+            </div>
+        </li>
+
+        <div class="sidebar-heading mt-2">
+            User Management
+        </div>
+
+        <li class="nav-item">
+            <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
+                aria-controls="collapsePages">
+                <i class="fas fa-fw fa-folder"></i>
+                <span>User</span>
+            </a>
+            <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">User Management:</h6>
+                    <a class="collapse-item" href="/users">
+                        <i class="fas fa-fw fa-users mr-1"></i>
+                        Users
+                    </a>
+                    <a class="collapse-item" href="/roles">
+                        <i class="fas fa-fw fa-list-ul"></i>
+                        Roles
+                    </a>
+                </div>
+            </div>
+        </li>
+
 
         <!-- Divider -->
         <hr class="sidebar-divider">
@@ -63,6 +122,11 @@
                             <a class="dropdown-item" href="#">
                                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Profile
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/">
+                                <i class="fas fa-home fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Home
                             </a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
