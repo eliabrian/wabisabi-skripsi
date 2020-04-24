@@ -59,6 +59,28 @@
         </li>
 
         <div class="sidebar-heading mt-2">
+            Transaction Management
+        </div>
+
+        <li class="nav-item">
+            <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseTransaction" aria-expanded="true"
+                aria-controls="collapsePages">
+                <i class="fas fa-fw fa-folder"></i>
+                <span>Transaction</span>
+            </a>
+            <div id="collapseTransaction" class="collapse" aria-labelledby="headingPages"
+                data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Transaction Management:</h6>
+                    <a class="collapse-item" href="/orders">
+                        <i class="fas fa-fw fa-shopping-bag mr-1"></i>
+                        Orders
+                    </a>
+                </div>
+            </div>
+        </li>
+
+        <div class="sidebar-heading mt-2">
             User Management
         </div>
 

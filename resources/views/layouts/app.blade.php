@@ -19,6 +19,9 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <!--Font Awsome-->
+    <link rel="stylesheet" href="{{asset('vendor/fontawesome-free/css/all.min.css')}}">
 </head>
 
 <body>
@@ -55,7 +58,7 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Cart</a>
+                                <a class="dropdown-item" href="/carts/">Cart</a>
 
                                 @if (Auth::user()->id == '1')
                                 <a class="dropdown-item" href="/dashboard">Dashboard</a>
@@ -78,6 +81,7 @@
             </div>
         </nav>
 
+        {{-- Component --}}
         <x-navbar />
 
         <main class="py-2">

@@ -32,6 +32,18 @@ Route::post('/products', 'Admin\ProductsController@store');
 Route::patch('/products/{product}', 'Admin\ProductsController@update');
 Route::delete('/products/{product}', 'Admin\ProductsController@destroy');
 
+
+Route::get('/product/{product}', 'ProductsController@show');
+
+
+Route::get('/carts', 'CartsController@index')->name('cart');
+Route::post('/carts/store', 'CartsController@store');
+Route::delete('/carts/{cart}', 'CartsController@destroy');
+Route::get('/carts/{cart}/increment', 'CartsController@increment');
+Route::get('/carts/{cart}/decrement', 'CartsController@decrement');
+
+
+
 #--Admin - Categories--#
 // Route::get('/categories', 'Admin\CategoriesController@index')->name('categories');
 // Route::get('/categories/create', 'Admin\CategoriesController@create');
@@ -50,7 +62,13 @@ Route::resource('/roles', 'Admin\RolesController')->middleware('role:Admin');
 #--Admin - Roles--#
 Route::resource('/users', 'Admin\UsersController')->middleware('role:Admin');
 
+#--Admin - Orders--#
+// Route::get('/orders', 'Admin\OrdersController')->middleware('role:Admin');
+
 #--User - Collection --#
 Route::get('/collection/{category:name}', 'CollectionsController@show');
 
+
 Route::view('/blocked', 'blocked');
+
+Route::resource('/shipments', 'ShipmentsController')->middleware('auth');
