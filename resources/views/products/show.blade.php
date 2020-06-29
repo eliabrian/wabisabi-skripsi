@@ -24,11 +24,13 @@
                     <hr>
                     <p>{{$product->desc}}</p>
                     <hr>
-                    <h4 class="my-3">Rp {{$product->price}},-</h4>
+                    <h4 class="my-3">Rp. {{number_format($product->price, 2, ',', '.')}}</h4>
                     <input type="hidden" name="quantity" value="1">
                     <div class="form-group">
                         <label for="quantity">Quantity</label>
-
+                        @empty($product->stock)
+                        <small class="text-danger">No stock available!</small>
+                        @endempty
                         <select class="form-control" id="quantity" name="quantity">
                             @for ($i = 1; $i <= $product->stock; $i++)
                                 <option value="{{$i}}">{{$i}}</option>
@@ -49,20 +51,19 @@
 
     </div>
     <!-- /.row -->
-
+    {{-- 
     <!-- Related Projects Row -->
     @if ($product->details->count() > 0)
     <h3 class="my-4">Related Picture</h3>
-    @endif
+    @endif --}}
 
 
     <div class="row">
 
         @foreach ($product->details as $detail)
-
         <div class="col-md-3 col-sm-6 mb-4">
             <a href="#">
-                <img class="img-fluid" src="/storage/{{$detail->path}}" alt="">
+                <img class="img-fluid" src="/storage/{{$detail->path}}">
             </a>
         </div>
         @endforeach

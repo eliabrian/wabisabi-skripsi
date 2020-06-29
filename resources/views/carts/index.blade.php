@@ -47,7 +47,7 @@
                             <i class="fas fa-plus"></i>
                         </a>
                     </td>
-                    <td>Rp {{$item->price * $item->quantity}}</td>
+                    <td>Rp {{number_format($item->price * $item->quantity, 2, ',', '.')}}</td>
                     <td>
                         <form action="/carts/{{$item->id}}" method="post">
                             @csrf
@@ -75,7 +75,7 @@
             </h3>
             <div class="card-body d-flex">
                 <h5>Total:</h5>
-                <h5 class="ml-auto">Rp. {{\Cart::getTotal()}} ,-</h5>
+                <h5 class="ml-auto">Rp. {{number_format(\Cart::getTotal(), 2, ',', '.')}}</h5>
             </div>
         </div>
 

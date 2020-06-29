@@ -96,7 +96,7 @@
                 </small>
                 @enderror
             </div>
-            <button type="submit" class="btn btn-dark btn-block">Submit</button>
+            <button type="submit" class="btn btn-dark btn-block" id="pay-button">Submit</button>
 
         </form>
     </div>
@@ -126,7 +126,7 @@
                         <p>{{$item->quantity}}</p>
                     </td>
                     <td>
-                        <p>{{$item->quantity * $item->price}}</p>
+                        <p>{{number_format($item->quantity * $item->price, 2, ',', '.')}}</p>
                     </td>
                 </tr>
                 @endforeach
@@ -135,10 +135,12 @@
         <hr>
         <div class="card-body d-flex">
             <h5>Total:</h5>
-            <h5 class="ml-auto">Rp. {{\Cart::getTotal()}} ,-</h5>
+            <h5 class="ml-auto">Rp. {{number_format(\Cart::getTotal(), 2, ',', '.')}}</h5>
         </div>
         <hr>
     </div>
 </div>
+
+
 
 @endsection

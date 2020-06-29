@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Product;
+use Illuminate\Support\Arr;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -25,6 +27,8 @@ class HomeController extends Controller
     public function index()
     {
         $categories = Category::all();
-        return view('home', compact('categories'));
+        $latest_category = Category::latest()->get();
+        $new_categories = $latest_category->take(3);
+        return view('home', compact('categories', 'new_categories'));
     }
 }

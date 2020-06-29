@@ -15,6 +15,9 @@ class LocationsTableSeeder extends Seeder
      */
     public function run()
     {
+        Province::truncate();
+        City::truncate();
+
         $provinces = RajaOngkir::provinsi()->all();
         foreach ($provinces as $province) {
             $provinsi = [

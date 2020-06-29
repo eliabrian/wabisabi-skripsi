@@ -72,7 +72,7 @@
                 data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Transaction Management:</h6>
-                    <a class="collapse-item" href="/orders">
+                    <a class="collapse-item" href="/admin/orders">
                         <i class="fas fa-fw fa-shopping-bag mr-1"></i>
                         Orders
                     </a>
@@ -124,7 +124,7 @@
         <div id="content">
 
             <!-- Topbar -->
-            <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+            <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow" id="page-top">
 
                 <!-- Topbar Navbar -->
                 <ul class="navbar-nav ml-auto">
@@ -179,7 +179,7 @@
         <footer class="sticky-footer bg-white">
             <div class="container my-auto">
                 <div class="copyright text-center my-auto">
-                    <span>Copyright &copy; Your Website 2019</span>
+                    <span>Copyright &copy; Wabisabi {{date('Y')}}</span>
                 </div>
             </div>
         </footer>

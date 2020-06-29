@@ -13,6 +13,8 @@ class CouriersTableSeeder extends Seeder
      */
     public function run()
     {
+        Courier::truncate();
+
         $data = [
             [
                 'code' => 'jne',

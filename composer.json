@@ -17,7 +17,9 @@
         "kavist/rajaongkir": "^1.1",
         "laravel/framework": "^7.0",
         "laravel/tinker": "^2.0",
-        "laravel/ui": "^2.0"
+        "laravel/ui": "^2.0",
+        "midtrans/midtrans-php": "^2.2",
+        "walangkaji/gtrack": "^1.2"
     },
     "require-dev": {
         "facade/ignition": "^2.0",

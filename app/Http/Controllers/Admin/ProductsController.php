@@ -49,7 +49,7 @@ class ProductsController extends Controller
         }
 
         $path = $request->thumbnail->store('thumbnail', 'public');
-        $image = Image::make(public_path("/storage/{$path}"))->orientate()->fit(600, 360);
+        $image = Image::make(public_path('/storage/' . $path))->orientate()->fit(600, 360);
         $image->save();
 
         Product::create(array_merge($request->all(), [
@@ -80,6 +80,7 @@ class ProductsController extends Controller
 
         if($request->thumbnail){
             $path = $request->thumbnail->store('thumbnail', 'public');
+            
             $image = Image::make(public_path("/storage/{$path}"))->orientate()->fit(600, 360);
             $image->save();
 

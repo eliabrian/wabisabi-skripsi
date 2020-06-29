@@ -11,6 +11,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
+
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
@@ -22,11 +23,22 @@
 
     <!--Font Awsome-->
     <link rel="stylesheet" href="{{asset('vendor/fontawesome-free/css/all.min.css')}}">
+
+    <style>
+        .masthead {
+            height: 100vh;
+            min-height: 500px;
+            background-image: url('https://images.unsplash.com/photo-1535981444082-2a5dc0548ef3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1250&q=80');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+    </style>
 </head>
 
 <body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+    <div>
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm sticky-top">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     Wabisabi
@@ -58,7 +70,9 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/profile">Profile</a>
                                 <a class="dropdown-item" href="/carts/">Cart</a>
+                                <a class="dropdown-item" href="/orders">Orders</a>
 
                                 @if (Auth::user()->id == '1')
                                 <a class="dropdown-item" href="/dashboard">Dashboard</a>
@@ -88,6 +102,9 @@
             @yield('content')
         </main>
     </div>
+
+
 </body>
+
 
 </html>

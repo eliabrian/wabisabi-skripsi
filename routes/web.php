@@ -22,15 +22,15 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
 
 #--Admin--#
-Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+Route::get('/dashboard', 'DashboardController@index')->middleware('role:Admin')->name('dashboard');
 
 #--Admin - Product--#
-Route::get('/products', 'Admin\ProductsController@index')->name('products');
-Route::get('/products/create', 'Admin\ProductsController@create');
-Route::get('/products/{product}/edit', 'Admin\ProductsController@edit');
-Route::post('/products', 'Admin\ProductsController@store');
-Route::patch('/products/{product}', 'Admin\ProductsController@update');
-Route::delete('/products/{product}', 'Admin\ProductsController@destroy');
+Route::get('/products', 'Admin\ProductsController@index')->middleware('role:Admin')->name('products');
+Route::get('/products/create', 'Admin\ProductsController@create')->middleware('role:Admin');
+Route::get('/products/{product}/edit', 'Admin\ProductsController@edit')->middleware('role:Admin');
+Route::post('/products', 'Admin\ProductsController@store')->middleware('role:Admin');
+Route::patch('/products/{product}', 'Admin\ProductsController@update')->middleware('role:Admin');
+Route::delete('/products/{product}', 'Admin\ProductsController@destroy')->middleware('role:Admin');
 
 
 Route::get('/product/{product}', 'ProductsController@show');
@@ -63,12 +63,21 @@ Route::resource('/roles', 'Admin\RolesController')->middleware('role:Admin');
 Route::resource('/users', 'Admin\UsersController')->middleware('role:Admin');
 
 #--Admin - Orders--#
-// Route::get('/orders', 'Admin\OrdersController')->middleware('role:Admin');
+Route::resource('/admin/orders', 'Admin\OrdersController')->middleware('role:Admin');
+Route::get('/admin/orders/{order:order_code}', 'Admin\OrdersController@show')->middleware('role:Admin');
+Route::patch('/admin/shipment/{shipment}', 'Admin\ShipmentController@update')->middleware('role:Admin');
 
 #--User - Collection --#
 Route::get('/collection/{category:name}', 'CollectionsController@show');
 
 
-Route::view('/blocked', 'blocked');
+// Route::view('/blocked', 'blocked');d
 
 Route::resource('/shipments', 'ShipmentsController')->middleware('auth');
+Route::get('/orders/create', 'OrdersController@create');
+Route::get('/orders', 'OrdersController@index')->name('orders');
+Route::get('/order/{order:order_code}', 'OrdersController@show');
+Route::delete('/order/{order:order_code}', 'OrdersController@destroy');
+
+
+Route::get('/profile', 'ProfileController@show')->middleware('auth');

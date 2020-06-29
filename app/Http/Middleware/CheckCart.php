@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class CheckRole
+class CheckCart
 {
     /**
      * Handle an incoming request.
@@ -13,10 +13,10 @@ class CheckRole
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next, $role)
+    public function handle($request, Closure $next)
     {
-        if ($request->user()->role->name != $role) {
-            return abort(404);
+        if(\Cart::session($request->user()->id)->isEmpty()){
+            return \redirect('carts');
         }
         return $next($request);
     }
